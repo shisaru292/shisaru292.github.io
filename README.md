@@ -1,2 +1,2 @@
 # shisaru292.github.io
-Blog
+Blog and a trip. 
