@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="使用Hexo简单来说，hexo将Markdown等可解释的文档转为静态网站页面，以便于直接部署。 学习方式推荐官网Doc——Hexo基本使用方式以及介绍 官方文档。包括但不限于：  hexo安装 网站、页面配置 建立与编辑新文章 Front Matter（前置页）信息 发布等  除此之外添加新的主题(theme)也尽可能多参考最新的项目文档。 其它方式：在B站和Youtube找到各种详解视频和使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Hexo搭建Blog">
+<meta property="og:url" content="https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/index.html">
+<meta property="og:site_name" content="Shisaru292 Blog">
+<meta property="og:description" content="使用Hexo简单来说，hexo将Markdown等可解释的文档转为静态网站页面，以便于直接部署。 学习方式推荐官网Doc——Hexo基本使用方式以及介绍 官方文档。包括但不限于：  hexo安装 网站、页面配置 建立与编辑新文章 Front Matter（前置页）信息 发布等  除此之外添加新的主题(theme)也尽可能多参考最新的项目文档。 其它方式：在B站和Youtube找到各种详解视频和使用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-11T14:37:47.000Z">
+<meta property="article:modified_time" content="2021-07-11T17:08:41.711Z">
+<meta property="article:author" content="Shisaru292">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>使用Hexo搭建Blog</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/shisaru292">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post " href="/2021/07/11/site-record/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&text=使用Hexo搭建Blog"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&is_video=false&description=使用Hexo搭建Blog"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Hexo搭建Blog&body=Check out this article: https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&name=使用Hexo搭建Blog&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&t=使用Hexo搭建Blog"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Hexo"><span class="toc-number">1.</span> <span class="toc-text">使用Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">学习方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E4%BD%BF%E7%94%A8%E9%87%8D%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">Hexo使用重点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置文件结构</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        使用Hexo搭建Blog
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Shisaru292</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-07-11T14:37:47.000Z" itemprop="datePublished">2021-07-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Hexo/">Hexo</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="使用Hexo"><a href="#使用Hexo" class="headerlink" title="使用Hexo"></a>使用Hexo</h1><p>简单来说，hexo将Markdown等可解释的文档转为静态网站页面，以便于直接部署。</p>
+<h2 id="学习方式"><a href="#学习方式" class="headerlink" title="学习方式"></a>学习方式</h2><p>推荐官网Doc——Hexo基本使用方式以及介绍 <a target="_blank" rel="noopener" href="https://hexo.io/docs/setup">官方文档</a>。包括但不限于：</p>
+<ul>
+<li>hexo安装</li>
+<li>网站、页面配置</li>
+<li>建立与编辑新文章</li>
+<li>Front Matter（前置页）信息</li>
+<li>发布等</li>
+</ul>
+<p>除此之外添加新的主题(theme)也尽可能多参考最新的项目文档。</p>
+<p>其它方式：在B站和Youtube找到各种详解视频和使用经验。如<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B0yVJ46CTR8&list=PLD5dyQmlN6xPqBV0cxO7zAe1C8OmDPqfX">Hexo视频教程</a></p>
+<h2 id="Hexo使用重点"><a href="#Hexo使用重点" class="headerlink" title="Hexo使用重点"></a>Hexo使用重点</h2><h3 id="配置文件结构"><a href="#配置文件结构" class="headerlink" title="配置文件结构"></a>配置文件结构</h3><p>配置文件结构：</p>
+<ul>
+<li><p>站点配置，位于<code>/_config.yml</code></p>
+<p>包括：站点标题、站点作者、站点描述、文档文件名格式以及URL路径格式、时间格式、部署选项等</p>
+</li>
+<li><p>主题配置，位于<code>/themes/&lt;theme name&gt;/_config.yml</code></p>
+<p>主题配置会覆盖站点配置。内容主要包括：导航栏配置、主题元素配置、主题表现、插件选项等</p>
+</li>
+<li><p>页面配置，位于页面 <code>&lt;title&gt;.md</code> 文件的<em>Front Matter</em>部分。</p>
+</li>
+</ul>
+<p><strong>参考内容</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo blog framework</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hexojs/awesome-hexo">Hexo知名项目</a></li>
+<li><a target="_blank" rel="noopener" href="https://mozilla.github.io/nunjucks/">Nunjucks模板语言</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B0yVJ46CTR8&list=PLD5dyQmlN6xPqBV0cxO7zAe1C8OmDPqfX">Hexo视频教程</a> 类似网上有很多</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/shisaru292">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Hexo"><span class="toc-number">1.</span> <span class="toc-text">使用Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">学习方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E4%BD%BF%E7%94%A8%E9%87%8D%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">Hexo使用重点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置文件结构</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&text=使用Hexo搭建Blog"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&is_video=false&description=使用Hexo搭建Blog"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Hexo搭建Blog&body=Check out this article: https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&title=使用Hexo搭建Blog"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&name=使用Hexo搭建Blog&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://shisaru292.github.io/2021/07/11/build-blog-with-hexo/&t=使用Hexo搭建Blog"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2021
+    Shisaru292
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/shisaru292">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
